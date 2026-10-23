@@ -1,10 +1,12 @@
 from devine import deviner, pire_cas
+import pytest
 
 def test_trouve_du_premier_coup():
     assert deviner(50) == 1
 
 def test_hors_intervalle():
-    assert deviner(150) == None
+    with pytest.raises(ValueError):
+        deviner(150)
 
 def test_pire_cas_100():
     assert pire_cas() == 7

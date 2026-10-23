@@ -1,5 +1,7 @@
 def deviner(secret, bas=1, haut=100):
     essais = 0
+    if not bas <= secret <= haut:
+        raise ValueError(f"le secret doit être entre {bas} et {haut}")
     while bas <= haut:
         milieu = (bas + haut) // 2
         essais += 1
